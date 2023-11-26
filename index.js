@@ -17,12 +17,10 @@ try {
 // Prepare the output object with the "include" key
   const outputMatrix = { include: selectedArray };
 
-  let jsonString = JSON.stringify(outputMatrix);
-  let escapedJsonString = jsonString.replace(/"/g, '\\"');
 
   // Set the output in JSON format
-  core.setOutput('selectedArray', JSON.stringify(escapedJsonString));
-  console.log(`The selected array is: ${JSON.stringify(escapedJsonString)}`);
+  core.setOutput('selectedArray', JSON.stringify(outputMatrix));
+  console.log(`The selected array is: ${JSON.stringify(outputMatrix)}`);
 } catch (error) {
   core.setFailed(error.message);
 }
