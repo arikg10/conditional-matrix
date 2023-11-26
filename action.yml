@@ -1,0 +1,18 @@
+name: 'Conditional Array Selector'
+description: 'Selects an array based on a given condition'
+inputs:
+  condition:
+    description: 'The condition to evaluate'
+    required: true
+  array1:
+    description: 'First array'
+    required: true
+  array2:
+    description: 'Second array'
+    required: true
+outputs:
+  selectedArray:
+    description: 'The selected array'
+runs:
+  using: 'node12'
+  main: 'index.js'
