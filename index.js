@@ -1,26 +1,19 @@
 const core = require('@actions/core');
-const yaml = require('js-yaml');
 
 try {
-  // Get the inputs from the workflow file
   const condition = core.getInput('condition', { required: true });
-  const array1Yaml = core.getInput('array1', { required: true });
-  const array2Yaml = core.getInput('array2', { required: true });
+  const array1Json = core.getInput('array1', { required: true });
+  const array2Json = core.getInput('array2', { required: true });
 
-  // Parse the YAML inputs
-  const array1 = yaml.load(array1Yaml);
-  const array2 = yaml.load(array2Yaml);
+  // Since the inputs are passed as JSON strings, parse them
+  const array1 = JSON.parse(array1Json);
+  const array2 = JSON.parse(array2Json);
 
-  // Determine which array to output
   const selectedArray = (condition === 'true') ? array1 : array2;
-
-// Prepare the output object with the "include" key
   const outputMatrix = { include: selectedArray };
 
-
-  // Set the output in JSON format
-  core.setOutput('selectedArray', JSON.stringify(outputMatrix));
-  console.log(`The selected array is: ${JSON.stringify(outputMatrix)}`);
+  core.setOutput('matrix', JSON.stringify(outputMatrix));
+  console.log(`Outputting matrix: ${JSON.stringify(outputMatrix)}`);
 } catch (error) {
   core.setFailed(error.message);
 }
