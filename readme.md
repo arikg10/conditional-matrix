@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run custom action
-        uses: your-username/your-repo-name@main
+        uses: arikg10/conditional-matrix@main
         with:
           condition: ${{ <your-condition> }}
           array1: |
