@@ -14,8 +14,12 @@ try {
   // Determine which array to output
   const selectedArray = (condition === 'true') ? array1 : array2;
 
+// Prepare the output object with the "include" key
+  const outputMatrix = { include: selectedArray };
+
+
   // Set the output in JSON format
-  core.setOutput('selectedArray', JSON.stringify(selectedArray));
+  core.setOutput('selectedArray', JSON.stringify(outputMatrix));
 } catch (error) {
   core.setFailed(error.message);
 }
