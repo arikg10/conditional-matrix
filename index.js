@@ -20,6 +20,7 @@ try {
 
   // Set the output in JSON format
   core.setOutput('selectedArray', JSON.stringify(outputMatrix));
+  console.log(`The selected array is: ${JSON.stringify(outputMatrix)}`);
 } catch (error) {
   core.setFailed(error.message);
 }
