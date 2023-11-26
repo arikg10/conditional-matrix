@@ -14,7 +14,7 @@ try {
   // Determine which array to output
   const selectedArray = (condition === 'true') ? array1 : array2;
 
-  // Set the output
+  // Set the output in JSON format
   core.setOutput('selectedArray', JSON.stringify(selectedArray));
 } catch (error) {
   core.setFailed(error.message);
